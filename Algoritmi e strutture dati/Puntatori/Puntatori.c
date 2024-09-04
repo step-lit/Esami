@@ -26,6 +26,4 @@ int main() {
   //accediamo al valore di x tramite il puntatore con l'indirezione * e visualizziamo il cambiamento
   printf("Il contenuto di x e': %d\n", *punta);
 
-  printf("\n");
-
 }
