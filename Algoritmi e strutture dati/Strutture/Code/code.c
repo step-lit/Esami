@@ -29,7 +29,9 @@ void enqueue(coda* coda, int x) {
         *** Posso decidere di spostare la parte di coda->tail e attaccarla a quella di coda->head oppure spostare quella di coda->head alla fine ***
         if ( coda->head > coda->tail ) {
            for (int i=0; i < coda->tail; i++)
-               coda->A[coda->size/2 + i]= coda->A[i];
+             coda->A[coda->size/2 + i]= coda->A[i];
+           
+           coda->tail = coda->size/2 + coda->tail;   //faccio puntare coda->tail al "nuovo" prossimo elemento vuoto della coda!
         }
         
         */

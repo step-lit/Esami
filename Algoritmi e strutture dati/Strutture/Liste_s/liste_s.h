@@ -41,6 +41,13 @@ void dealloca_lista_s(lista_s* l);
 
 lista_s inversa_lista_s(lista_s l);
 
+/* ESERCITAZIONI LISTE S*/
+int calcola_minimo_lista_s(lista_s l);
+int verifica_max_min_lista_s(lista_s l);
+void insert_end_lista_s(lista_s* l, int val);
+
+
+
 #endif
 
 //file per le dichiarazioni di metodi e strutture/variabili

@@ -145,7 +145,7 @@ void cancella_lista_s(lista_s* l, item* i) {
      //se non è in testa lo vado a cercare ma uso un item di supporto per non spostare il puntato da head
      item* corrente = (*l);
      //devo controllare il next di corrente perché devo fermarmi ad un item prima, altrimenti non riesco a fare il salto di item!!!
-     while( corrente->next != i ){
+     while( corrente->next != i ){  //qui non contemplo la possibilità che il nodo non ci sia!!!!
         corrente = corrente->next;
      }
      corrente->next = i->next;
@@ -153,7 +153,6 @@ void cancella_lista_s(lista_s* l, item* i) {
 }
 
 //cancellazione di un item con un campo info specifico (cancella tutte le copie dell'elemento v all'interno della lista)
-   
 void cancella_lista_s_elem(lista_s* l, int n) {
      if ( (*l) == NULL ) {
         printf("Errore: la lista e' vuota!!\n");
@@ -226,5 +225,54 @@ int conta_nodi_lista_s(lista_s l) {
         l = l->next;
     }
     return contatore;
+}
+
+
+
+
+
+
+
+
+/****************************************************/
+/*************** ESERCITAZIONE LISTE S***************/
+/****************************************************/
+
+//calcola il minimo nella lista
+int calcola_minimo_lista_s(lista_s l) {
+    if( l == NULL ) {
+        printf("Errore: la lista e' vuota!\n");
+        return -1;
+    }
+    int min = l->info;
+    l = l->next;
+    while( l != NULL ) {
+        if( l->info < min )
+            min = l->info;
+        l = l->next;
+    }
+    return min;
+}
+
+//verifica che max = 2 * min
+int verifica_max_min_lista_s(lista_s l) {
+    int max = massimo_lista_s(l);
+    int min = calcola_minimo_lista_s(l);
+
+    return max == 2*min;
+}
+
+//inserimento di un nodo alla fine della lista
+void insert_end_lista_s(lista_s* l, int val) {
+    item* nuovo_nodo = (item*)malloc(sizeof(item));
+    nuovo_nodo->info = val;
+    nuovo_nodo->next = NULL;
+
+    if( l == NULL ) (*l) = nuovo_nodo;
+    item* corrente = (*l);
+    while( corrente->next != NULL ) {
+        corrente = corrente->next;
+    }
+    corrente->next = nuovo_nodo;
 }
 

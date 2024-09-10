@@ -15,7 +15,7 @@
 int main () {
     //creo un albero vuoto di profondità 2
     albero_b root2 = NULL;
-    //nel secondo campo devo mettere l'indirizzo del puntatore al campo dove voglio inserire il nodo
+    //nel secondo campo devo mettere l'indirizzo del puntatore al campo dove voglio inserire il nodo_a
     aggiungi_figlio_b(NULL, &root2, 1);  //(parent , punta_n, numero)
     //voglio inserire un figlio sinistro alla radice
     aggiungi_figlio_b(root2, &(root2->left), 2);
@@ -54,7 +54,7 @@ int main () {
     printf("L'albero ha un'altezza in preordine pari a %d\n", altezza_albero_b2_preordine(root2));   
     
     //creo un albero vuoto di profondità 3
-    nodo* root3 = NULL;
+    nodo_a* root3 = NULL;
     int counter = 0;
 
     // Costruzione albero di profondità 3
@@ -85,7 +85,7 @@ int main () {
 
 
     //creo un albero sbilanciato di prova
-    nodo* root_prova = NULL;
+    nodo_a* root_prova = NULL;
     counter = 0;
 
     // Costruzione albero di profondità 3
@@ -136,7 +136,7 @@ int main () {
     printf("\n");
 
     albero_b root4 = NULL;
-    //nel secondo campo devo mettere l'indirizzo del puntatore al campo dove voglio inserire il nodo
+    //nel secondo campo devo mettere l'indirizzo del puntatore al campo dove voglio inserire il nodo_a
     aggiungi_figlio_b(NULL, &root4, 1);  //(parent , punta_n, numero)
     //voglio inserire un figlio sinistro alla radice
     aggiungi_figlio_b(root4, &(root4->left), 2);
@@ -177,7 +177,7 @@ int main () {
 
     //creo un albero vuoto di profondità 2
     albero_b root5 = NULL;
-    //nel secondo campo devo mettere l'indirizzo del puntatore al campo dove voglio inserire il nodo
+    //nel secondo campo devo mettere l'indirizzo del puntatore al campo dove voglio inserire il nodo_a
     aggiungi_figlio_b(NULL, &root5, 1);  //(parent , punta_n, numero)
     //voglio inserire un figlio sinistro alla radice
     aggiungi_figlio_b(root5, &(root5->left), 2);
@@ -188,5 +188,69 @@ int main () {
 
     altezza = altezza_albero_b2(root5);
     printf("L'albero root5 e' un albero completo? %d\n", completo_albero_b_altezza(root5, altezza));
+
+
+    //creo un albero binario di ricerca
+    albero_b test_abr_1 = NULL;
+    inserimento_abr(&test_abr_1, 4);
+    inserimento_abr(&test_abr_1, 1);
+    inserimento_abr(&test_abr_1, 6);
+    inserimento_abr(&test_abr_1, 2);
+    inserimento_abr(&test_abr_1, 5);
+    inserimento_abr(&test_abr_1, 8);
+    inserimento_abr(&test_abr_1, 9);
+    inserimento_abr(&test_abr_1, 3);
+    inserimento_abr(&test_abr_1, 7);
+    inserimento_abr(&test_abr_1, 10);
+    inserimento_abr(&test_abr_1, 32);
+    inserimento_abr(&test_abr_1, 22);
+     
+    printf("L'albero test_abr_1 ha un'altezza pari a: %d\n", altezza_albero_b2(test_abr_1));
+
+
+    //print2D(test_abr_1);
+
+    printf("\n");
+    printf("Esiste un nodo foglia a profondita' 3? %d\n", verifica_nodo_prof(root2, 3));
+    printf("Esiste un nodo foglia a profondita' 2? %d\n", verifica_nodo_prof(root2, 2));
+    printf("Esiste un nodo foglia a profondita' 1? %d\n", verifica_nodo_prof(root2, 1));
+
+    
+    //creo un albero per la funzione conta_nodi_due_figli_stesso_valore(albero_b a):
+    albero_b root6 = NULL;
+    //nel secondo campo devo mettere l'indirizzo del puntatore al campo dove voglio inserire il nodo_a
+    aggiungi_figlio_b(NULL, &root6, 1);  //(parent , punta_n, numero)
+    //voglio inserire un figlio sinistro alla radice
+    aggiungi_figlio_b(root6, &(root6->left), 2);
+    aggiungi_figlio_b(root6, &(root6->right), 2);
+
+    aggiungi_figlio_b(root6->left, &(root6->left->left), 3);
+    //aggiungi_figlio_b(root2->left, &(root2->left->right), 4);
+    aggiungi_figlio_b(root6->right, &(root6->right->left), 5);
+    aggiungi_figlio_b(root6->right, &(root6->right->right), 5);
+
+    print2D(root6);
+    printf("L'albero ha %d nodi con i figli che hanno il valore uguale!\n", conta_nodi_due_figli_stesso_valore(root6));
+
+    printf("L'albero ha una foglia con valore 0? %d\n", verifica_foglia_info_0(root6));
+
+    //creo un altro albero per la funzione verifica_alberi_stessi_valori(albero_b a1, albero_b a2):
+    albero_b root7 = NULL;
+    //nel secondo campo devo mettere l'indirizzo del puntatore al campo dove voglio inserire il nodo_a
+    aggiungi_figlio_b(NULL, &root7, 2);  //(parent , punta_n, numero)
+    //voglio inserire un figlio sinistro alla radice
+    aggiungi_figlio_b(root7, &(root7->left), 2);
+    aggiungi_figlio_b(root7, &(root7->right), 1);
+
+    aggiungi_figlio_b(root7->left, &(root7->left->left), 5);
+    //aggiungi_figlio_b(root2->left, &(root2->left->right), 4);
+    aggiungi_figlio_b(root7->right, &(root7->right->left), 3);
+    aggiungi_figlio_b(root7->right, &(root7->right->right), 5);
+
+    print2D(root7);
+    printf("I due alberi hanno stessa altezza e stessi valori nei nodi? %d\n", verifica_alberi_stessi_valori(root6, root2));
+    
+
+
 
 }

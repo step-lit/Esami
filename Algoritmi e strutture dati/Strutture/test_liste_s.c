@@ -47,5 +47,15 @@ int main() {
     printf("La ricerca di 6 nella lista produce NULL? %d\n", search_lista_s(head, 6) == NULL );
 
     printf("La lista adesso ha %d nodi!\n", conta_nodi_lista_s(head));
+
+
+    /*      ESERCITAZIONI LISTE      */
+    printf("Il minimo valore contenuto nella lista e' %d\n", calcola_minimo_lista(head));
+    printf("Il massimo valore e' il doppio del minimo contenuto nella lista? %d\n", verifica_max_min(head));
+    cancella_lista_s_elem(&head, 3);
+    printf("Ho cancellato 3!\n");
+    printf("Il massimo valore e' il doppio del minimo contenuto nella lista? %d\n", verifica_max_min(head));
+
+    
     
 }
