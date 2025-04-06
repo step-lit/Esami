@@ -1,0 +1,5 @@
+INDEX VERSION 1.134+G:\Other computers\Il mio laptop\Sistemi informativi su web\workspace-spring-tool-suite-4-4.28.1.RELEASE\.metadata\.plugins\org.eclipse.jdt.core
+1865797976.index
+924387201.index
+502249415.index
+1598134009.index

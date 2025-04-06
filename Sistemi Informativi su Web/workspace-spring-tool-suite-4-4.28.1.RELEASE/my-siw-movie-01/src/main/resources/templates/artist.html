@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	
+ <head>
+  <title>Film</title>
+  <link rel="stylesheet" href="/stile.css?version=2" />
+ <head>
+ 
+ <body>
+	<div th:if="${artist}">
+	<h1 th:text="${artist.nome}+' '+${artist.cognome}">Nome Cognome</h1>
+	  <div>Data di nascita:<span th:text="' '+${artist.data}">yyyy-MM-dd</span></div>
+	</div>
+	<div th:unless="${artist}">Non esiste artista</div>
+ </body>
+ 
+</html>
