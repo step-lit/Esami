@@ -1,3 +1,3 @@
-# Exams
+# Esami
 
-Folder that contains many documents and excercises. Mostly subjects studied during the bachelor's degree
+Cartella contenente documenti ed esercizi relativi ad esami passati.
